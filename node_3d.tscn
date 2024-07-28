@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://comcofabf3xhp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gplsp"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qgdh4"]
+seamless = true
+noise = SubResource("FastNoiseLite_gplsp")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8t7c2"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_gplsp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86okk"]
+albedo_texture = SubResource("NoiseTexture2D_qgdh4")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_8t7c2")
+
+[sub_resource type="SphereMesh" id="SphereMesh_iitdo"]
+material = SubResource("StandardMaterial3D_86okk")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0953793, -0.772192, -0.628189, -0.317876, 0.574399, -0.754335, 0.943323, 0.271634, -0.190675, 0, 0, 0)
+mesh = SubResource("SphereMesh_iitdo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142937, 0.399034, 1.96062)

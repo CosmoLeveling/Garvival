@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/movement.gd" id="1_15jw3"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r87u5"]
-height = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o85gy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_skhjo"]
 
@@ -53,7 +52,7 @@ script = ExtResource("1_15jw3")
 metadata/_edit_group_ = true
 
 [node name="StandCollison" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_r87u5")
+shape = SubResource("CapsuleShape3D_o85gy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_skhjo")

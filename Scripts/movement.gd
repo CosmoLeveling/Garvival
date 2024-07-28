@@ -11,7 +11,7 @@ const SENSITIVITY = 0.003
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
 var t_bob = 0.0
-
+var push_force = 0.8
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
@@ -43,6 +43,12 @@ func _unhandled_input(event):
 		)
 	
 func _physics_process(delta):
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+	
 	if(falling and is_on_floor() and is_sliding):
 		slide_speed += falldistance / 10
 	falldistance = -velocity.y

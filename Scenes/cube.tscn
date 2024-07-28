@@ -10,7 +10,8 @@ uv2_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_lfwn2"]
 material = SubResource("StandardMaterial3D_n383g")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tio78"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ekgv3"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [node name="Cube" type="RigidBody3D"]
 
@@ -18,4 +19,4 @@ material = SubResource("StandardMaterial3D_n383g")
 mesh = SubResource("BoxMesh_lfwn2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_tio78")
+shape = SubResource("ConvexPolygonShape3D_ekgv3")
