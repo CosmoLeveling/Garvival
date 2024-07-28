@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://bb1ckvxd3fukk"]
+
+[ext_resource type="PackedScene" uid="uid://0n2er7alubd4" path="res://cube.tscn" id="1_pu1sl"]
+[ext_resource type="Texture2D" uid="uid://dfdxttondbquv" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_smm4l"]
+[ext_resource type="PackedScene" uid="uid://n8eyto44wdhp" path="res://character_body_3d.tscn" id="2_qqvv1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6evoa"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8bpdp"]
+sky_material = SubResource("ProceduralSkyMaterial_6evoa")
+
+[sub_resource type="Environment" id="Environment_v8pwp"]
+background_mode = 2
+sky = SubResource("Sky_8bpdp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qrdd"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7m5r"]
+albedo_texture = ExtResource("1_smm4l")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_x5tra"]
+material = SubResource("StandardMaterial3D_w7m5r")
+size = Vector3(10, 1, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v8pwp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7qrdd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_x5tra")
+
+[node name="Cube" parent="." instance=ExtResource("1_pu1sl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10113, 0)
+
+[node name="Cube2" parent="." instance=ExtResource("1_pu1sl")]
+transform = Transform3D(0.891402, -0.367603, 0.265085, 0.453213, 0.723021, -0.521382, 0, 0.584901, 0.811105, 0, 6.12203, 0)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_qqvv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93727, 4.22938)

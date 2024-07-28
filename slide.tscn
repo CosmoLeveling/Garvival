@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dimv8ea3pig5x"]
+
+[ext_resource type="Script" path="res://Node3D.gd" id="1_l5l73"]
+
+[node name="Slide" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_l5l73")
+player = NodePath("")

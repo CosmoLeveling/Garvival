@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://0n2er7alubd4"]
+
+[ext_resource type="Texture2D" uid="uid://cuxdux0eefwdx" path="res://addons/kenney_prototype_textures/red/texture_01.png" id="1_lor61"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n383g"]
+albedo_texture = ExtResource("1_lor61")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_lfwn2"]
+material = SubResource("StandardMaterial3D_n383g")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tio78"]
+
+[node name="Cube" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lfwn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_tio78")

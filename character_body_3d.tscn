@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://n8eyto44wdhp"]
+
+[ext_resource type="Script" path="res://movement.gd" id="1_15jw3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r87u5"]
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_skhjo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1ocy"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="Animation" id="Animation_f8805"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.571363, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pdiyw"]
+resource_name = "slide"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.571363, 0), Vector3(0, -0.481853, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_myegp"]
+_data = {
+"RESET": SubResource("Animation_f8805"),
+"slide": SubResource("Animation_pdiyw")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93727, 5.1754)
+script = ExtResource("1_15jw3")
+metadata/_edit_group_ = true
+
+[node name="StandCollison" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_r87u5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_skhjo")
+surface_material_override/0 = SubResource("StandardMaterial3D_o1ocy")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.571363, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_myegp")
+}
+
+[node name="SlideCollison" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50231, 0)
+shape = SubResource("CapsuleShape3D_r87u5")
+disabled = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
