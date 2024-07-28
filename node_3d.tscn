@@ -52,5 +52,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10113, 0)
 [node name="Cube2" parent="." instance=ExtResource("1_pu1sl")]
 transform = Transform3D(0.891402, -0.367603, 0.265085, 0.453213, 0.723021, -0.521382, 0, 0.584901, 0.811105, 0, 6.12203, 0)
 
+[node name="Cube" parent="Cube2" instance=ExtResource("1_pu1sl")]
+transform = Transform3D(1, 6.74984e-09, 9.93691e-09, 7.06935e-09, 1, 2.98023e-08, 2.47045e-08, 0, 1, 9.53674e-07, 2.11791, -2.75021)
+
+[node name="Cube2" parent="Cube2" instance=ExtResource("1_pu1sl")]
+transform = Transform3D(0.891402, -0.367603, 0.265085, 0.453213, 0.723021, -0.521382, 2.98023e-08, 0.584901, 0.811105, 1.90735e-06, 4.13881, -2.75021)
+
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qqvv1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93727, 4.22938)

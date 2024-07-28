@@ -79,9 +79,14 @@ func _physics_process(delta):
 	if (Input.is_action_pressed("SlideCrouch") and is_on_floor() and Input.is_action_pressed("Forward")):
 		slide()
 	
-	#Head bob
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
+	#Head bob4
+	if Input.is_action_pressed("Forward") or Input.is_action_pressed("Backward") or Input.is_action_pressed("Left") or Input.is_action_pressed("Right"):
+		t_bob += delta * velocity.length() * float(is_on_floor())
+		camera.transform.origin = _headbob(t_bob)
+	else:
+		camera.transform.origin.x = lerp(camera.transform.origin.x,0.0,0.05)
+		camera.transform.origin.y = lerp(camera.transform.origin.y,0.0,0.05)
+		camera.transform.origin.z = lerp(camera.transform.origin.z,0.0,0.05)
 	
 	#Fov
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
