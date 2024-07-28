@@ -16,7 +16,7 @@ var t_bob = 0.0
 var gravity = 9.8
 
 #Fov
-const BASE_FOV = 75.0
+const BASE_FOV = 100.0
 const FOV_CHANGE = 1.5
 
 @onready var head = $Head
