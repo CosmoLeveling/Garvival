@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c8chiu382vfvv"
-path="res://.godot/imported/leg.gltf-89db9bd73e284599f9af156f22434c07.scn"
+path="res://.godot/imported/leg.gltf-9edebe63a56b76b829898091c8f004f3.scn"
 
 [deps]
 
-source_file="res://leg.gltf"
-dest_files=["res://.godot/imported/leg.gltf-89db9bd73e284599f9af156f22434c07.scn"]
+source_file="res://models/leg.gltf"
+dest_files=["res://.godot/imported/leg.gltf-9edebe63a56b76b829898091c8f004f3.scn"]
 
 [params]
 

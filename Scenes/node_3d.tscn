@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bb1ckvxd3fukk"]
 
-[ext_resource type="PackedScene" uid="uid://0n2er7alubd4" path="res://cube.tscn" id="1_pu1sl"]
-[ext_resource type="Texture2D" uid="uid://dfdxttondbquv" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_smm4l"]
-[ext_resource type="PackedScene" uid="uid://n8eyto44wdhp" path="res://character_body_3d.tscn" id="2_qqvv1"]
-[ext_resource type="Texture2D" uid="uid://cuxdux0eefwdx" path="res://addons/kenney_prototype_textures/red/texture_01.png" id="4_u3fol"]
+[ext_resource type="PackedScene" uid="uid://0n2er7alubd4" path="res://Scenes/cube.tscn" id="1_fvwe7"]
+[ext_resource type="PackedScene" uid="uid://n8eyto44wdhp" path="res://Scenes/character_body_3d.tscn" id="2_ojp8c"]
+[ext_resource type="Texture2D" uid="uid://dfdxttondbquv" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="3_bp03d"]
+[ext_resource type="Texture2D" uid="uid://cuxdux0eefwdx" path="res://addons/kenney_prototype_textures/red/texture_01.png" id="4_miety"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6evoa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,11 +19,11 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mytp6"]
-albedo_texture = ExtResource("1_smm4l")
+albedo_texture = ExtResource("3_bp03d")
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ht4a"]
-albedo_texture = ExtResource("4_u3fol")
+albedo_texture = ExtResource("4_miety")
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
@@ -35,19 +35,19 @@ environment = SubResource("Environment_v8pwp")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Cube" parent="." instance=ExtResource("1_pu1sl")]
+[node name="Cube" parent="." instance=ExtResource("1_fvwe7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10113, 0)
 
-[node name="Cube2" parent="." instance=ExtResource("1_pu1sl")]
+[node name="Cube2" parent="." instance=ExtResource("1_fvwe7")]
 transform = Transform3D(0.891402, -0.367603, 0.265085, 0.453213, 0.723021, -0.521382, 0, 0.584901, 0.811105, 0, 6.12203, 0)
 
-[node name="Cube3" parent="." instance=ExtResource("1_pu1sl")]
+[node name="Cube3" parent="." instance=ExtResource("1_fvwe7")]
 transform = Transform3D(0.891402, -0.367603, 0.265085, 0.453213, 0.723021, -0.521382, 2.41728e-08, 0.584901, 0.811105, -1.50759, 9.08723, -0.991943)
 
-[node name="Cube4" parent="." instance=ExtResource("1_pu1sl")]
+[node name="Cube4" parent="." instance=ExtResource("1_fvwe7")]
 transform = Transform3D(0.627995, -0.438418, 0.642971, 0.731677, 0.0512002, -0.679726, 0.265085, 0.897312, 0.352935, -2.25048, 10.5484, 0.190084)
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_qqvv1")]
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_ojp8c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93727, 4.22938)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]

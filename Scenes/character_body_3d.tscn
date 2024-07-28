@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://n8eyto44wdhp"]
 
-[ext_resource type="Script" path="res://movement.gd" id="1_15jw3"]
+[ext_resource type="Script" path="res://Scripts/movement.gd" id="1_15jw3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r87u5"]
 height = 1.0
