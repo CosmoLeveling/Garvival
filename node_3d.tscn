@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb1ckvxd3fukk"]
+[gd_scene load_steps=10 format=3 uid="uid://bb1ckvxd3fukk"]
 
 [ext_resource type="PackedScene" uid="uid://0n2er7alubd4" path="res://cube.tscn" id="1_pu1sl"]
 [ext_resource type="Texture2D" uid="uid://dfdxttondbquv" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_smm4l"]
 [ext_resource type="PackedScene" uid="uid://n8eyto44wdhp" path="res://character_body_3d.tscn" id="2_qqvv1"]
+[ext_resource type="Texture2D" uid="uid://cuxdux0eefwdx" path="res://addons/kenney_prototype_textures/red/texture_01.png" id="4_u3fol"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6evoa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,6 +20,10 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mytp6"]
 albedo_texture = ExtResource("1_smm4l")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ht4a"]
+albedo_texture = ExtResource("4_u3fol")
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
@@ -68,3 +73,10 @@ transform = Transform3D(0.527994, -0.849248, 0, 0.849248, 0.527994, 0, 0, 0, 1, 
 use_collision = true
 size = Vector3(0.792877, 17.505, 11.435)
 material = SubResource("StandardMaterial3D_mytp6")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999531, -0.0306257, 0, 0.0306257, 0.999531, 0, 0, -16.2364)
+material_override = SubResource("StandardMaterial3D_3ht4a")
+use_collision = true
+radius = 1.74212
+sides = 64
