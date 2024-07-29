@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs42njo1e253g"]
+
+[ext_resource type="Shader" uid="uid://3sw8x7yjbyix" path="res://w.tres" id="1_66m56"]
+[ext_resource type="Shader" path="res://orb.gdshader" id="1_q1ljp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vuaix"]
+render_priority = 0
+shader = ExtResource("1_66m56")
+shader_parameter/Basecolor = Color(1, 1, 1, 1)
+shader_parameter/FloatParameter = 0.035
+shader_parameter/Noise_Scale = 0.24
+shader_parameter/Noise_Size = 18.79
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tl3fu"]
+render_priority = 0
+shader = ExtResource("1_q1ljp")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/Dissolve_Height = null
+
+[sub_resource type="SphereMesh" id="SphereMesh_pe2u0"]
+material = SubResource("ShaderMaterial_tl3fu")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0270238, 0)
+material_override = SubResource("ShaderMaterial_vuaix")
+mesh = SubResource("SphereMesh_pe2u0")
