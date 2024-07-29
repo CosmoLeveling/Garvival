@@ -53,12 +53,12 @@ func gen_terrain(noise:FastNoiseLite,coords:Vector2,size:float,initailly_visible
 	
 	
 func update_chunk(view_pos:Vector2, max_view_dis):
-	var viewer_distance = position_coord.direction_to(view_pos)
+	var viewer_distance = position_coord.distance_to(view_pos)
 	var _is_visible = viewer_distance <= max_view_dis
 	setChunkVisibility(_is_visible)
 	
 func update_lod(view_pos:Vector2):
-	var viewer_distance = position_coord.direction_to(view_pos)
+	var viewer_distance = position_coord.distance_to(view_pos)
 	var update_terrain = false
 	var new_lod = 0
 	if viewer_distance > 1000:
@@ -79,6 +79,8 @@ func update_lod(view_pos:Vector2):
 	
 func setChunkVisibility(_is_visible):
 	visible = _is_visible
+func getChunkVisible():
+	return visible
 func create_collision():
 	if get_child_count() > 0:
 		for i in get_children():

@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://8a0ylprefsms"]
+[gd_scene load_steps=6 format=3 uid="uid://8a0ylprefsms"]
 
 [ext_resource type="Script" path="res://Scenes/Terrain/chunk.gd" id="1_a4edr"]
+[ext_resource type="Shader" path="res://texture_shader.gdshader" id="1_r40d8"]
+[ext_resource type="Texture2D" uid="uid://dsb0j2r88rerf" path="res://test.jpg" id="2_cu8ft"]
+[ext_resource type="Texture2D" uid="uid://ys6y4ipgotfo" path="res://rock.jpg" id="3_vpp8s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oa6iq"]
+render_priority = 0
+shader = ExtResource("1_r40d8")
+shader_parameter/min_grass_height = -1.445
+shader_parameter/max_rock_height = -0.235
+shader_parameter/uvscale = Vector2(10, 10)
+shader_parameter/terrain_grass = ExtResource("2_cu8ft")
+shader_parameter/terrain_rock = ExtResource("3_vpp8s")
 
 [node name="Chunk" type="MeshInstance3D"]
+material_override = SubResource("ShaderMaterial_oa6iq")
 script = ExtResource("1_a4edr")

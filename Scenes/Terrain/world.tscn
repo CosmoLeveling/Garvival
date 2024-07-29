@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddu3y6kmjladn"]
+
+[ext_resource type="Script" path="res://World.gd" id="1_dwuvv"]
+[ext_resource type="PackedScene" uid="uid://8a0ylprefsms" path="res://Scenes/Terrain/chunk.tscn" id="2_2y6ng"]
+[ext_resource type="Script" path="res://Scenes/Terrain/Marker3D.gd" id="3_2meit"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ooeng"]
+noise_type = 0
+frequency = 0.008
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kywq6"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_phohr"]
+sky_material = SubResource("ProceduralSkyMaterial_kywq6")
+
+[sub_resource type="Environment" id="Environment_6ihsb"]
+background_mode = 2
+sky = SubResource("Sky_phohr")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D" node_paths=PackedStringArray("viewer")]
+script = ExtResource("1_dwuvv")
+chunkSize = 240
+terrain_height = 15
+view_distance = 3500
+viewer = NodePath("Marker3D")
+chunk_mesh_scene = ExtResource("2_2y6ng")
+noise = SubResource("FastNoiseLite_ooeng")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6ihsb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.1942, 0.980962, 0, -0.980962, 0.1942, 0, 130.455, 0)
+script = ExtResource("3_2meit")
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 0.453399, -0.891308, 0, 0.891308, 0.453399, 0, -21.9285, -110.768)
