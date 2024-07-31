@@ -260,7 +260,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1045.34, -53.3184)
 modes/cull = 2
 varyings/test = "0,4"
 nodes/vertex/0/position = Vector2(640, 120)
