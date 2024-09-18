@@ -48,6 +48,7 @@ _data = {
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93727, 5.1754)
+motion_mode = 1
 script = ExtResource("1_15jw3")
 metadata/_edit_group_ = true
 
